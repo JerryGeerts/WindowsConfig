@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="WindowsConfig.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Css/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="mid">
+        <div class="UpperBackColor">
+        </div>
+        <div class="UpperBack">
+            <div class="Nav"> 
+                <ul>
+                    <li>Logo</li>
+                    <li class="left">Contact</li>
+                    <li class="left">About</li>
+                    <li class="left">FAQ</li>
+                </ul>
+            </div>
+            <div class="HR"></div>
+            <div class="Titel">
+                <h1>Windows Configuratie Template</h1>
+                <p>To install ure windows configuration with eas</p>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="LowerBack">
+
+        </div>
+    </div>
+    </form>
+</body>
+</html>

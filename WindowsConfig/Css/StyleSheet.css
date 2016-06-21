@@ -1,0 +1,69 @@
+﻿*{
+    margin:0;
+}
+
+body {
+    width:100%;
+    margin:0px;
+    height:100%;
+}
+
+.mid{
+    width:70%;
+    margin:auto;    
+}
+
+.UpperBackColor{
+    background-color:rgb(26, 185, 167);
+    height:580px;
+    width:100%;
+    position:absolute;
+    left:0;
+}
+
+.Nav{
+    position:relative;
+    top:20px;
+    height:50px;
+    width:100%;
+}
+.HR{
+    position:absolute;
+    background: url(http://www.ansonika.com/annova/img/line_header.png) left bottom repeat-x;
+    left:0px;
+    width:100%;
+    height:10px;?,
+}
+
+ul{
+    display:inline;
+        padding:0px;
+}
+
+li{
+    display:inline;
+    font-size:18px;
+    font-family:Arial;
+    color:white;
+    font-weight:600;
+}
+
+li:first-child{
+    float:left;
+}
+
+.left{
+    float:right;
+}
+
+li:nth-child(4), li:nth-child(3){
+    margin-right:80px;
+}
+
+hr{
+    color:white;
+    width:100%;
+    position:absolute;
+    left:0;
+    padding:0px;
+}
