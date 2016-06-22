@@ -1,0 +1,45 @@
+gebruiksvriendelijke interface voorgeschoteld krijgen
+
+kunnen opgeven wat voor server het is (server 2008 of Server 2012)
+
+een servernaam kunnen opgeven
+
+ip-adres configuratie kunnen opgeven 
+
+
+Roles{
+
+Active directory
+   Gebruiker moet een domeinnaam kunnen opgeven
+   Gebruiker moet een recovery password kunnen opgeven
+   Gebruiker moet installatie opties mee kunnen geven 
+
+DHCP
+    Gebruiker moet naam van de scope kunnen opgeven
+    Gebruiker moet de reikwijdte en opties van de scope kunnen opgeven
+    Gebruiker moet opgeven of het direct geactiveerd moet worden
+
+DNS
+    Gebruiker moet opgeven of deze gekoppeld is aan AD
+    Gebruiker moet de naam van de forward-look-up zone kunnen opgeven
+    Gebruiker moet de nameserver kunnen opgeven
+    Gebruiker moet een A-record kunnen laten aanmaken 
+
+DFS
+   Gebruiker moet een namespace kunnen opgeven
+   Gebruiker moet opgeven tussen welke servers dit gerepliceerd moet kunnen worden 
+
+IIS
+WDS
+WSUS
+}
+
+bij voorkeur een script opleveren die rekening houdt met volgordelijkheid en noodzakelijke reboots (dat de rest van de script in de startup scripts bijvoorbeeld komt)
+
+verschillende export mogelijkheid hebben (.txt of print on screen)
+
+meerdere gebruikers tegelijk kunnen opgeven (beste is als er een csv import module komt)
+
+OU’s kunnen opgeven die aangemaakt moeten worden
+
+Security groups opgeven die aangemaakt moeten worden 
