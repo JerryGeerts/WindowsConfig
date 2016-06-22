@@ -28,6 +28,22 @@ body {
     height:50px;
     width:100%;
 }
+
+.Nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.Nav a:hover{
+    color:white;
+    text-decoration:none;
+}
+
+.Nav a:visited{
+    color:white;
+    text-decoration:none;
+}
+
 .HR{
     position:absolute;
     background: url(http://www.ansonika.com/annova/img/line_header.png) left bottom repeat-x;
@@ -168,15 +184,19 @@ hr{
     width:35px;
     height:35px;
     position:relative;
-    left:420px;
+    left:425px;
     top:160px;
+    color:green;
+    background-color:green;
 }
 
 .middle-wizzard label{
     font-size:23px;
     font-family:"Open Sans";
     position:relative;
-    left:450px;
-    top:152px;
+    left:455px;
+    top:153px;
     color:black;
+    font-weight:300;
+    margin-top:30px;
 }
