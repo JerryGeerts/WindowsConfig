@@ -7,27 +7,30 @@ using System.Web.UI.WebControls;
 
 namespace WindowsConfig
 {
-    public partial class Server : System.Web.UI.Page
+    public partial class Name : System.Web.UI.Page
     {
+        string server;
         protected void Page_Load(object sender, EventArgs e)
         {
+            server = Request.QueryString["Server"];
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Index.aspx");
+            Response.Redirect("Server.aspx");
         }
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
-            if (RadioButtonList1.SelectedIndex >= 0)
+            Page.Validate();
+            if (txtName.Text != "" && RegularExpressionValidator1.IsValid)
             {
-                Response.Redirect("Name.aspx?Server=" + RadioButtonList1.SelectedValue);
+                Response.Redirect("Roles.aspx?Server=" + server + "&Name=" + txtName.Text);
             }
             else
             {
-                lblError.Text = "Please select the OS of the server you are trying to configure";
+                lblError.Text = "Please enter a valid name that you would like to give your server";
             }
-        }
+}
     }
 }

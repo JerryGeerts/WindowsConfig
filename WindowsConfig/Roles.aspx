@@ -16,7 +16,6 @@
         <div class="middle-wizzard">
 
         </div>
-
         <div class="bottom-wizzard">
             <asp:Button ID="btnBackward" runat="server" Text="&#10094; Backward" />
             <asp:Button ID="btnForward" runat="server" Text="Forward &#10095;" />

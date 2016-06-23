@@ -1,6 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="WindowsConfig.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Css/Index.css" rel="stylesheet" />
+    <style>
+        .middle-wizzard input{
+            font: 25px "Open Sans";
+            font-weight:300;
+            letter-spacing:0.1px;
+            border-radius:0px;
+            height:60px;
+            width:700px;
+            background-color:#34495e;
+            color:white;
+            border:none;
+            padding:0px;
+            text-transform: uppercase;
+            position:relative;
+            margin-top:60px;
+            top:75px;
+            left:235px;
+            box-shadow: 0 0 5px #777;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="top-wizzard">
