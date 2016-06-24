@@ -41,6 +41,6 @@
             <asp:Button ID="btnBackward" runat="server" Text="&#10094; Backward" OnClick="btnBackward_Click" />
             <asp:Button ID="btnForward" runat="server" Text="Forward &#10095;" OnClick="btnForward_Click" />
         </div>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="1" ValidationExpression="^[a-zA-Z0-9_/s]{1,15}$">1</asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="1" ValidationExpression="^[a-zA-Z0-9_/s]{1,15}$" ValidateRequestMode="Enabled" ValidationGroup="ServerName" Visible="False">1</asp:RegularExpressionValidator>
     </div>
 </asp:Content>

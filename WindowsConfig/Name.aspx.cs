@@ -31,6 +31,6 @@ namespace WindowsConfig
             {
                 lblError.Text = "Please enter a valid name that you would like to give your server";
             }
-}
+        }
     }
 }

@@ -7,7 +7,6 @@
             position:relative;
             left:445px;
             top:140px;
-            background-color:green;
         }
 
         .middle-wizzard label{
