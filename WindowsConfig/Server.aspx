@@ -20,6 +20,9 @@
             margin-top:30px;
             padding-left:30px;
         }
+        .Error{
+            top:230px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

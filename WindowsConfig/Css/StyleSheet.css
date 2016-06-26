@@ -192,83 +192,30 @@ hr{
 
 .Error{
     position:relative;
-    top:330px;
+    top:230px;
     display: block;
     text-align:center;
     color:red;
 }
 
-        .middle-wizzard #ContentPlaceHolder1_cblLeft{
+        .Scope,.Start,.End,.Router{
+            top:95px;
+            position:relative;
             display:block;
-            float:left;
+            margin:auto;
+            width:25%;
+            height:30px;
+            font-family: "Open Sans";
+            font-weight:400;
+            font-size:16px;
+            left:10%;
         }
 
-        .middle-wizzard #ContentPlaceHolder1_cblLeft input{
-            width:25px;
-            height:25px;
-            position:relative;
-            left:400px;
-            top:120px;
-        }
-
-        .middle-wizzard #ContentPlaceHolder1_cblLeft label{
-            font-size:20px;
-            font-family:"Open Sans";
-            position:relative;
-            left:400px;
-            top:115px;
-            color:black;
-            font-weight:300;
-            margin-top:20px;
-            padding-left:30px;
-        }
-
-         .middle-wizzard #ContentPlaceHolder1_cblRight{
-            display:block;
-            float:right;
-         }
-
-        .middle-wizzard #ContentPlaceHolder1_cblRight input{
-            width:25px;
-            height:25px;
-            position:relative;
-            right:400px;
-            top:120px;
-        }
-
-        .middle-wizzard #ContentPlaceHolder1_cblRight label{
-            font-size:20px;
-            font-family:"Open Sans";
-            position:relative;
-            right:400px;
-            top:115px;
-            color:black;
-            font-weight:300;
-            margin-top:20px;
-            padding-left:30px;
-        }
-
-        .middle-wizzard #ContentPlaceHolder1_cblMiddle{
-            display:block;
-            margin:0 auto;
-         }
-
-        .middle-wizzard #ContentPlaceHolder1_cblMiddle input{
-            width:25px;
-            height:25px;
-            position:relative;
-            top:295px;
-            left:365px;
-        }
-
-        .middle-wizzard #ContentPlaceHolder1_cblMiddle label{
-            font-size:20px;
-            font-family:"Open Sans";
-            position:relative;
-            top:292px;
-            color:black;
-            font-weight:300;
-            margin-top:20px;
-            padding-left:30px;
-            left:365px;
-        }
+.p{
+    top:130px;
+    position:relative;
+    font-family: "Open Sans";
+    font-weight:300;
+    font-size:16px;
+    left:30%;
+}

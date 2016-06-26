@@ -25,7 +25,7 @@ namespace WindowsConfig
             Page.Validate();
             if (txtName.Text != "" && RegularExpressionValidator1.IsValid)
             {
-                Response.Redirect("Roles.aspx?Server=" + server + "&Name=" + txtName.Text);
+                Response.Redirect("Network.aspx?Server=" + server + "&Name=" + txtName.Text);
             }
             else
             {
