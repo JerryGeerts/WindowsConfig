@@ -1,10 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Dhcp.aspx.cs" Inherits="WindowsConfig.Dhcp" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            left: 452px;
-            top: 18px;
-        }
+    .Scope,.Start,.End,.Subnet{
+        top:95px;
+        position:relative;
+        display:block;
+        margin:auto;
+        width:25%;
+        height:30px;
+        font-family: "Open Sans";
+        font-weight:400;
+        font-size:16px;
+        left:10%;
+    }
+
+    .p{
+        top:130px;
+        position:relative;
+        font-family: "Open Sans";
+        font-weight:300;
+        font-size:16px;
+        left:30%;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,7 +40,7 @@
             <h1>How would you like your DHCP server to be configured?</h1>
 
             <p class="p">Scope Name :</p>
-            <asp:RegularExpressionValidator ID="revScope" runat="server" ControlToValidate="txtScope" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="revScope" runat="server" ControlToValidate="txtScope"></asp:RegularExpressionValidator>
             <asp:TextBox ID="txtScope" runat="server" CssClass="Scope"></asp:TextBox>
 
             <p class="p">Starting IP :</p>
@@ -34,9 +51,9 @@
             <asp:RegularExpressionValidator ID="revEnd" runat="server" ControlToValidate="txtEnd" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
             <asp:TextBox ID="txtEnd" runat="server" CssClass="End"></asp:TextBox>
 
-            <p class="p">Router IP :</p>
-            <asp:RegularExpressionValidator ID="revRouter" runat="server" ControlToValidate="txtRouter" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="txtRouter" runat="server" CssClass="Router"></asp:TextBox>     
+            <p class="p">Subnet :</p>
+            <asp:RegularExpressionValidator ID="revSubnet" runat="server" ControlToValidate="txtSubnet" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
+            <asp:TextBox ID="txtSubnet" runat="server" CssClass="Subnet"></asp:TextBox>     
                
             <asp:Label ID="lblError" runat="server" Text="" CssClass="Error"></asp:Label>
         </div>

@@ -58,11 +58,13 @@ namespace WindowsConfig {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNSIP;
         
         /// <summary>
+        /// txtDNSIP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDNSIP;
         
         /// <summary>
         /// lblError control.

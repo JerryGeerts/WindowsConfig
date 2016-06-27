@@ -11,11 +11,10 @@ namespace WindowsConfig
     {
         string server;
         string name;
-        string RoleSyntax;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
-            name = Request.QueryString["Name"];
+            this.Form.DefaultButton = btnForward.UniqueID;
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
@@ -25,6 +24,8 @@ namespace WindowsConfig
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
+            server = Request.QueryString["Server"];
+            name = Request.QueryString["Name"];
             Page.Validate();
             if (txtScope.Text != "" && revScope.IsValid)
             {
@@ -32,9 +33,9 @@ namespace WindowsConfig
                 {
                     if (txtEnd.Text != "" && revEnd.IsValid)
                     {
-                        if (txtRouter.Text != "" && revRouter.IsValid)
+                        if (txtSubnet.Text != "" && revSubnet.IsValid)
                         {
-                            Response.Redirect("Roles.aspx?Server=" + server + " &Name=" + name + "&IP4=" + txtIP4.Text + "&Sub=" + txtSub.Text + "&Gate=" + txtGate.Text + "&DNS=" + txtDNS.Text);
+                            Response.Redirect("Roles.aspx?Server=" + server + " &Name=" + name);
                         }
                         else
                         {
@@ -56,6 +57,5 @@ namespace WindowsConfig
                 lblError.Text = "Please enter a valid IP4 address";
             }
         }
-    }
     }
 }

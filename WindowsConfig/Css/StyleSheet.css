@@ -198,8 +198,8 @@ hr{
     color:red;
 }
 
-        .Scope,.Start,.End,.Router{
-            top:95px;
+        .Router,.DNSName,.DNSIP{
+            top:125px;
             position:relative;
             display:block;
             margin:auto;
@@ -212,7 +212,7 @@ hr{
         }
 
 .p{
-    top:130px;
+    top:160px;
     position:relative;
     font-family: "Open Sans";
     font-weight:300;

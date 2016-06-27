@@ -4,6 +4,7 @@
 
     </style>
 </asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" DefaultButton="btnForward">
 
     <div class="top-wizzard">
         <p id="prog"><strong>PROGRESS</strong></p>
@@ -16,6 +17,7 @@
     </div>
     <div class="wizzard-form">
         <div class="middle-wizzard">
+            <h1>Would you like to add a Default Gateway and a DNS server? (Optional)</h1>
 
             <p class="p">Router IP :</p>
             <asp:RegularExpressionValidator ID="revRouter" runat="server" ControlToValidate="txtRouter" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
@@ -27,6 +29,7 @@
                  
             <p class="p">DNS server IP :</p>
             <asp:RegularExpressionValidator ID="revDNSIP" runat="server" ControlToValidate="txtDNSIP" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
+            <asp:TextBox ID="txtDNSIP" runat="server" CssClass="DNSIP"></asp:TextBox>
 
             <asp:Label ID="lblError" runat="server" Text="" CssClass="Error"></asp:Label>
         </div>
