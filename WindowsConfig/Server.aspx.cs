@@ -11,6 +11,7 @@ namespace WindowsConfig
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Form.DefaultButton = btnForward.UniqueID;
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)

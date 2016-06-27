@@ -13,8 +13,7 @@ namespace WindowsConfig
         string name;
         protected void Page_Load(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
-            name = Request.QueryString["Name"];
+            this.Form.DefaultButton = btnForward.UniqueID;
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
@@ -24,6 +23,8 @@ namespace WindowsConfig
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
+            server = Request.QueryString["Server"];
+            name = Request.QueryString["Name"];
             Page.Validate();
             if (txtIP4.Text != "" && revIP4.IsValid)
             {

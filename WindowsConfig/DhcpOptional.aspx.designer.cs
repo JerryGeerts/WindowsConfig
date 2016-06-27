@@ -10,79 +10,59 @@
 namespace WindowsConfig {
     
     
-    public partial class Dhcp {
+    public partial class DhcpOptional {
         
         /// <summary>
-        /// revScope control.
+        /// revRouter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revScope;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revRouter;
         
         /// <summary>
-        /// txtScope control.
+        /// txtRouter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtScope;
+        protected global::System.Web.UI.WebControls.TextBox txtRouter;
         
         /// <summary>
-        /// revStart control.
+        /// revDNSName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revStart;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNSName;
         
         /// <summary>
-        /// txtStart control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStart;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// revEnd control.
+        /// revDNSIP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEnd;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNSIP;
         
         /// <summary>
-        /// txtEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnd;
-        
-        /// <summary>
-        /// revSubnet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revSubnet;
-        
-        /// <summary>
-        /// txtSubnet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubnet;
         
         /// <summary>
         /// lblError control.

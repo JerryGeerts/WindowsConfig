@@ -12,7 +12,7 @@ namespace WindowsConfig
         string server;
         protected void Page_Load(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
+            this.Form.DefaultButton = btnForward.UniqueID;
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
@@ -22,6 +22,7 @@ namespace WindowsConfig
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
+            server = Request.QueryString["Server"];
             Page.Validate();
             if (txtName.Text != "" && RegularExpressionValidator1.IsValid)
             {

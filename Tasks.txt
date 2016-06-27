@@ -16,7 +16,8 @@ Active directory								Install-WindowsFeature AD-domain-services -IncludeManage
 
 DHCP 										Install-WindowsFeature DHCP -IncludeManagementTools
     Gebruiker moet naam van de scope kunnen opgeven 				Add-DhcpServerv4Scope -Name “Friendly Name of Scope” -StartRange 10.10.10.1 -EndRange 10.10.10.254 -SubnetMask 255.255.255.0
-    Gebruiker moet de reikwijdte en opties van de scope kunnen opgeven 		Set-DhcpServerv4OptionValue -Router Gateway -DnsDomain DNSdomainname -DnsServer DNS server IP
+    Gebruiker moet de reikwijdte en opties van de scope kunnen opgeven 		Set-DhcpServerv4OptionValue -DnsDomain DNSdomainname -DnsServer DNS server IP
+										Set-DhcpServerv4OptionValue -Router Gateway
     Gebruiker moet opgeven of het direct geactiveerd moet worden 		netsh dhcp server scope 10.10.10.0 set state 0 / 1 
 
 DNS										Install-WindowsFeature DNS –IncludeManagementTools
@@ -33,7 +34,7 @@ DFS
 										import-module servermanager 
 
 IIS 										add-windowsfeature web-server -includeallsubfeature
-WDS 										add-windowsfeature wds
+WDS 										add-windowsfeature wds 
 WSUS 										Install-WindowsFeature -Name UpdateServices -IncludeManagementTools
 }
 
@@ -48,7 +49,6 @@ OU’s kunnen opgeven die aangemaakt moeten worden
 Security groups opgeven die aangemaakt moeten worden 
 
 
-Import-Module ADDSDeployment
 Install-ADDSDomainController `
 -NoRebootOnCompletion:$false `
 -NoGlobalCatalog:$false `

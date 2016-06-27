@@ -21,12 +21,7 @@ namespace WindowsConfig
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
-            name = Request.QueryString["Name"];
-            IP4 = Request.QueryString["IP4"];
-            Sub = Request.QueryString["Sub"];
-            Gate = Request.QueryString["Gate"];
-            DNS = Request.QueryString["DNS"];
+            this.Form.DefaultButton = btnForward.UniqueID;
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
@@ -36,6 +31,13 @@ namespace WindowsConfig
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
+            server = Request.QueryString["Server"];
+            name = Request.QueryString["Name"];
+            IP4 = Request.QueryString["IP4"];
+            Sub = Request.QueryString["Sub"];
+            Gate = Request.QueryString["Gate"];
+            DNS = Request.QueryString["DNS"];
+
             foreach (ListItem item in cblLeft.Items)
             {
                 if (item.Selected)

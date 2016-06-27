@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dhcp.aspx" />
+    <Content Include="DhcpOptional.aspx" />
     <Content Include="Name.aspx" />
     <Content Include="Network.aspx" />
     <Content Include="packages.config" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="Dhcp.aspx.designer.cs">
       <DependentUpon>Dhcp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DhcpOptional.aspx.cs">
+      <DependentUpon>DhcpOptional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DhcpOptional.aspx.designer.cs">
+      <DependentUpon>DhcpOptional.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
