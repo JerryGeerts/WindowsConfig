@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WindowsConfig
 {
     public partial class Network : System.Web.UI.Page
     {
-        string server;
-        string name;
+        private string server;
+        private string name;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Form.DefaultButton = btnForward.UniqueID;
+            server = Request.QueryString["Server"];
+            name = Request.QueryString["SName"];
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
@@ -23,8 +22,6 @@ namespace WindowsConfig
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
-            name = Request.QueryString["Name"];
             Page.Validate();
             if (txtIP4.Text != "" && revIP4.IsValid)
             {
@@ -34,7 +31,7 @@ namespace WindowsConfig
                     {
                         if (txtDNS.Text != "" && revDNS.IsValid)
                         {
-                            Response.Redirect("Roles.aspx?Server=" + server + " &Name=" + name + "&IP4=" + txtIP4.Text + "&Sub=" + txtSub.Text + "&Gate=" + txtGate.Text + "&DNS=" + txtDNS.Text);
+                            Response.Redirect("Roles.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + txtIP4.Text + "&NWSub=" + txtSub.Text + "&NWGate=" + txtGate.Text + "&NWDNS=" + txtDNS.Text);
                         }
                         else
                         {
@@ -43,7 +40,7 @@ namespace WindowsConfig
                     }
                     else
                     {
-                        lblError.Text = "Please enter a valid Gateway address";    
+                        lblError.Text = "Please enter a valid Gateway address";
                     }
                 }
                 else

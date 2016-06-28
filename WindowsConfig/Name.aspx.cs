@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WindowsConfig
 {
     public partial class Name : System.Web.UI.Page
     {
-        string server;
+        private string server;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Form.DefaultButton = btnForward.UniqueID;
@@ -26,7 +23,7 @@ namespace WindowsConfig
             Page.Validate();
             if (txtName.Text != "" && RegularExpressionValidator1.IsValid)
             {
-                Response.Redirect("Network.aspx?Server=" + server + "&Name=" + txtName.Text);
+                Response.Redirect("Network.aspx?Server=" + server + "&SName=" + txtName.Text);
             }
             else
             {

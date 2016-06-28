@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Dhcp.aspx.cs" Inherits="WindowsConfig.Dhcp" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AD.aspx.cs" Inherits="WindowsConfig.AD" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .Scope, .Start, .End, .Subnet {
-            top: 95px;
+        .Domain, .Pass, .Confirm {
+            top: 110px;
             position: relative;
             display: block;
             margin: auto;
@@ -16,12 +16,16 @@
         }
 
         .p {
-            top: 130px;
+            top: 150px;
             position: relative;
             font-family: "Open Sans";
             font-weight: 300;
             font-size: 16px;
             left: 30%;
+        }
+
+        .Error {
+            top: 180px;
         }
     </style>
 </asp:Content>
@@ -38,22 +42,16 @@
     </div>
     <div class="wizzard-form">
         <div class="middle-wizzard">
-            <h1>How would you like your DHCP role to be configured?</h1>
+            <h1>How would you like your AD Role to be configured?</h1>
 
-            <p class="p">Scope Name :</p>
-            <asp:TextBox ID="txtScope" runat="server" CssClass="Scope"></asp:TextBox>
+            <p class="p">Domain Name :</p>
+            <asp:TextBox ID="txtDomain" runat="server" CssClass="Domain"></asp:TextBox>
 
-            <p class="p">Starting IP :</p>
-            <asp:RegularExpressionValidator ID="revStart" runat="server" ControlToValidate="txtStart" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="txtStart" runat="server" CssClass="Start"></asp:TextBox>
+            <p class="p">Recovery pass :</p>
+            <asp:TextBox ID="txtPass" runat="server" CssClass="Pass" TextMode="Password"></asp:TextBox>
 
-            <p class="p">Ending IP :</p>
-            <asp:RegularExpressionValidator ID="revEnd" runat="server" ControlToValidate="txtEnd" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="txtEnd" runat="server" CssClass="End"></asp:TextBox>
-
-            <p class="p">Subnet :</p>
-            <asp:RegularExpressionValidator ID="revSubnet" runat="server" ControlToValidate="txtSubnet" ValidationExpression="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="txtSubnet" runat="server" CssClass="Subnet"></asp:TextBox>
+            <p class="p">Confirm Recovery pass :</p>
+            <asp:TextBox ID="txtConfirm" runat="server" CssClass="Confirm" TextMode="Password"></asp:TextBox>
 
             <asp:Label ID="lblError" runat="server" Text="" CssClass="Error"></asp:Label>
         </div>

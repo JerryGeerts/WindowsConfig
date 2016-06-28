@@ -3,22 +3,22 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head runat="server">
-        <title>Windows Config</title>
-        <link href="Css/StyleSheet.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" />
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <asp:ContentPlaceHolder ID="head" runat="server">
-        </asp:ContentPlaceHolder>
-    </head>
-    <body>
-        <form id="form1" runat="server">
+<head runat="server">
+    <title>Windows Config</title>
+    <link href="Css/StyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
         <div class="mid">
             <div class="UpperBackColor"></div>
             <div class="UpperBack">
-                <div class="Nav"> 
+                <div class="Nav">
                     <ul>
                         <li><a href="Index.aspx">Logo</a></li>
                         <li class="left"><a href="/#">CONTACT</a></li>
@@ -34,11 +34,11 @@
             </div>
             <div class="LowerBack">
                 <div class="wizzard">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>
-        </form>
-    </body>
+    </form>
+</body>
 </html>

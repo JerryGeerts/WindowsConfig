@@ -2,41 +2,50 @@ gebruiksvriendelijke interface voorgeschoteld krijgen
 
 kunnen opgeven wat voor server het is (server 2008 of Server 2012)
 
-een servernaam kunnen opgeven							Rename-Computer Jerry
+een servernaam kunnen opgeven								Rename-Computer Jerry
 
-ip-adres configuratie kunnen opgeven 						netsh interface ip set address "Ethernet0" static IP4 Subnet Gateway						
-										Set-DNSClientServerAddress -ServerAddresses DNS "Ethernet0"
-										
+ip-adres configuratie kunnen opgeven 							netsh interface ip set address "Ethernet0" static IP4 Subnet Gateway						
+											Set-DNSClientServerAddress -ServerAddresses DNS "Ethernet0"
+
+											Restart-Computer
 Roles{
 
-Active directory								Install-WindowsFeature AD-domain-services -IncludeManagementTools
-   Gebruiker moet een domeinnaam kunnen opgeven					Import-Module ADDSDeployment
-   Gebruiker moet een recovery password kunnen opgeven
-   Gebruiker moet installatie opties mee kunnen geven 
+Active directory									Install-WindowsFeature AD-domain-services -IncludeManagementTools
+   Gebruiker moet een domeinnaam kunnen opgeven						Import-Module ADDSDeployment
+   Gebruiker moet een recovery password kunnen opgeven					Install-ADDSForest -DomainName regio.local -InstallDNS -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force) -force:$true
+   Gebruiker moet installatie opties mee kunnen geven 					-
 
-DHCP 										Install-WindowsFeature DHCP -IncludeManagementTools
-    Gebruiker moet naam van de scope kunnen opgeven 				Add-DhcpServerv4Scope -Name “Friendly Name of Scope” -StartRange 10.10.10.1 -EndRange 10.10.10.254 -SubnetMask 255.255.255.0
-    Gebruiker moet de reikwijdte en opties van de scope kunnen opgeven 		Set-DhcpServerv4OptionValue -DnsDomain DNSdomainname -DnsServer DNS server IP
-										Set-DhcpServerv4OptionValue -Router Gateway
-    Gebruiker moet opgeven of het direct geactiveerd moet worden 		netsh dhcp server scope 10.10.10.0 set state 0 / 1 
+DHCP 											Install-WindowsFeature DHCP -IncludeManagementTools
+    Gebruiker moet naam van de scope kunnen opgeven 					Add-DhcpServerv4Scope -Name “Friendly Name of Scope” -StartRange 10.10.10.1 -EndRange 10.10.10.254 -SubnetMask 255.255.255.0
+    Gebruiker moet de reikwijdte en opties van de scope kunnen opgeven 			Set-DhcpServerv4OptionValue -DnsDomain DNSdomainname -DnsServer DNS server IP
+											Set-DhcpServerv4OptionValue -Router Gateway
+    Gebruiker moet opgeven of het direct geactiveerd moet worden 			netsh dhcp server scope 10.10.10.0 set state 0 / 1 
 
-DNS										Install-WindowsFeature DNS –IncludeManagementTools
-    Gebruiker moet opgeven of deze gekoppeld is aan AD
-    Gebruiker moet de naam van de forward-look-up zone kunnen opgeven
-    Gebruiker moet de nameserver kunnen opgeven
-    Gebruiker moet een A-record kunnen laten aanmaken 
+DNS											Install-WindowsFeature DNS –IncludeManagementTools
+    Gebruiker moet opgeven of deze gekoppeld is aan AD					Add-DnsServerPrimaryZone -Name "Regio.local" -ZoneFile "Regio.local"
+    Gebruiker moet de naam van de forward-look-up zone kunnen opgeven			Add-DnsServerForwarder -IPAddress 8.8.8.8 -PassThru
+    Gebruiker moet de nameserver kunnen opgeven						Add-DnsServerForwarder -IPAddress 8.8.4.4 -PassThru
+    Gebruiker moet een A-record kunnen laten aanmaken 					Add-DnsServerResourceRecordA -Name "TheCoolest" -ZoneName "Regio.local" -IPv4Address 192.168.0.3
 
-DFS
-   Gebruiker moet een namespace kunnen opgeven
-   Gebruiker moet opgeven tussen welke servers dit gerepliceerd moet kunnen worden 
+DFS											Install-WindowsFeature FS-DFS-Namespace
+   Gebruiker moet een namespace kunnen opgeven						$folders = (’C:\dfsroots\files’) 
+   Gebruiker moet opgeven tussen welke servers dit gerepliceerd moet kunnen worden 	mkdir -path $folders
+											$folders | ForEach-Object {$sharename = (Get-Item $_).name; New-SMBShare -Name $shareName -Path $_ -FullAccess Everyone}
+											New-DfsnRoot -Path \\jerry\files -TargetPath \\Jerry\files -Type DomainV2
 
+											import-module servermanager 
 
-										import-module servermanager 
+IIS 											add-windowsfeature web-server
 
-IIS 										add-windowsfeature web-server -includeallsubfeature
-WDS 										add-windowsfeature wds 
-WSUS 										Install-WindowsFeature -Name UpdateServices -IncludeManagementTools
+WDS 											add-windowsfeature wds 
+
+WSUS 											Install-WindowsFeature -Name UpdateServices -IncludeManagementTools
+											New-Item -Path C: -Name WSUS -ItemType Directory
+											sl "C:\Program Files\Update Services\Tools"
+											.\wsusutil.exe postinstall CONTENT_DIR=C:\WSUS
 }
+
+
 
 bij voorkeur een script opleveren die rekening houdt met volgordelijkheid en noodzakelijke reboots (dat de rest van de script in de startup scripts bijvoorbeeld komt)
 
@@ -49,16 +58,21 @@ OU’s kunnen opgeven die aangemaakt moeten worden
 Security groups opgeven die aangemaakt moeten worden 
 
 
-Install-ADDSDomainController `
--NoRebootOnCompletion:$false `
--NoGlobalCatalog:$false `
--InstallDns:$false `
--CreateDnsDelegation:$false `
--CriticalReplicationOnly:$false `
--DatabasePath "C:\Windows\NTDS" `
--LogPath "C:\Windows\NTDS" `
--SysvolPath "C:\Windows\SYSVOL" `
--DomainName "contoso.local" `
--NoRebootOnCompletion:$false `
--safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force) `
--Force:$true
+
+Install-WindowsFeature FS-DFS-Namespace
+$folders = (’C:\dfsroots\files’) 
+mkdir -path $folders
+$folders | ForEach-Object {$sharename = (Get-Item $_).name; New-SMBShare -Name $shareName -Path $_ -FullAccess Everyone}
+New-DfsnRoot -Path \\Piet\files -TargetPath \\Jerry\files -Type DomainV2
+
+
+Install-WindowsFeature AD-domain-services -IncludeManagementTools
+Import-Module ADDSDeployment
+Install-ADDSForest -DomainName regio.local -InstallDNS -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force) -force:$true
+
+
+Install-WindowsFeature DNS –IncludeManagementTools
+Add-DnsServerPrimaryZone -Name "Regio.local" -ZoneFile "Regio.local"
+Add-DnsServerForwarder -IPAddress 8.8.8.8 -PassThru
+Add-DnsServerForwarder -IPAddress 8.8.4.4 –PassThru
+Add-DnsServerResourceRecordA -Name "TheCoolest" -ZoneName "Regio.local" -IPv4Address 192.168.0.3

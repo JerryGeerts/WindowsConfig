@@ -1,48 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WindowsConfig
 {
     public partial class Roles : System.Web.UI.Page
     {
-        string server;
-        string name;
-        string IP4;
-        string Sub;
-        string DNS;
-        string Gate;
-        string syntax;
-        int amount;
-
+        private string server;
+        private string name;
+        private string IP4;
+        private string Sub;
+        private string DNSIP;
+        private string Gate;
+        private string Syntax;
+        private int amount;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Form.DefaultButton = btnForward.UniqueID;
+            server = Request.QueryString["Server"];
+            name = Request.QueryString["SName"];
+            IP4 = Request.QueryString["NWIP4"];
+            Sub = Request.QueryString["NWSub"];
+            Gate = Request.QueryString["NWGate"];
+            DNSIP = Request.QueryString["NWDNS"];
         }
 
         protected void btnBackward_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Network.aspx?Server=" + server + "&Name=" + name);
+            Response.Redirect("Network.aspx?Server=" + server + "&SName=" + name);
         }
 
         protected void btnForward_Click(object sender, EventArgs e)
         {
-            server = Request.QueryString["Server"];
-            name = Request.QueryString["Name"];
-            IP4 = Request.QueryString["IP4"];
-            Sub = Request.QueryString["Sub"];
-            Gate = Request.QueryString["Gate"];
-            DNS = Request.QueryString["DNS"];
-
             foreach (ListItem item in cblLeft.Items)
             {
                 if (item.Selected)
                 {
-                    syntax += item.Value;
+                    Syntax += item.Value;
                     amount++;
                 }
             }
@@ -50,7 +45,7 @@ namespace WindowsConfig
             {
                 if (item.Selected)
                 {
-                    syntax += item.Value;
+                    Syntax += item.Value;
                     amount++;
                 }
             }
@@ -58,46 +53,40 @@ namespace WindowsConfig
             {
                 if (item.Selected)
                 {
-                    syntax += item.Value;
+                    Syntax += item.Value;
                     amount++;
                 }
             }
-            if(amount > 0)
-            {
-                string[] selected = syntax.Split(';');
 
-                foreach (string x in selected)
+            if (amount > 0)
+            {
+                string[] selected = Syntax.Split(';');
+
+                if (selected.Contains("DNS"))
                 {
-                    if (x.Contains("DHCP"))
-                    {
-                        Response.Redirect("Dhcp.aspx?Server=" + server + "&Name=" + name + "&IP4=" + IP4 + "&Sub=" + Sub + "&Gate=" + Gate + "&DNS=" + DNS + "&Roles=" + syntax);
-                        break;
-                    }
-                    else if (x.Contains("DNS"))
-                    {
-                        Response.Redirect("Dns.aspx?Server=" + server + "&Name=" + name + "&IP4=" + IP4 + "&Sub=" + Sub + "&Gate=" + Gate + "&DNS=" + DNS + "&Roles=" + syntax);
-                        break;
-                    }
-                    else if (x.Contains("DFS"))
-                    {
-                        Response.Redirect("Dfs.aspx?Server=" + server + "&Name=" + name + "&IP4=" + IP4 + "&Sub=" + Sub + "&Gate=" + Gate + "&DNS=" + DNS + "&Roles=" + syntax);
-                        break;
-                    }
-                    else if (x.Contains("AD"))
-                    {
-                        Response.Redirect("Ad.aspx?Server=" + server + "&Name=" + name + "&IP4=" + IP4 + "&Sub=" + Sub + "&Gate=" + Gate + "&DNS=" + DNS + "&Roles=" + syntax);
-                        break;
-                    }
-                    else
-                    {
-                        //TODO Bring this to end page wit all the data cause 0 roles have to be installed and install the roles that were selected but dont need pages
-                    }
+                    Response.Redirect("Dns.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
+                }
+                else if (selected.Contains("DHCP"))
+                {
+                    Response.Redirect("Dhcp.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
+                }
+                else if (selected.Contains("DFS"))
+                {
+                    Response.Redirect("Dfs.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
+                }
+                else if (selected.Contains("AD"))
+                {
+                    Response.Redirect("AD.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
+                }
+                else
+                {
+                    Response.Redirect("Result.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
                 }
             }
             else
             {
-                //TODO Bring this to end page wit all the data cause 0 roles have to be installed
-            } 
+                Response.Redirect("Result.aspx?Server=" + server + "&SName=" + name + "&NWIP4=" + IP4 + "&NWSub=" + Sub + "&NWGate=" + Gate + "&NWDNS=" + DNSIP + "&Roles=" + Syntax);
+            }
         }
     }
 }

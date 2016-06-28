@@ -10,16 +10,7 @@
 namespace WindowsConfig {
     
     
-    public partial class DhcpOptional {
-        
-        /// <summary>
-        /// txtRouter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRouter;
+    public partial class DNS {
         
         /// <summary>
         /// txtName control.
@@ -31,22 +22,40 @@ namespace WindowsConfig {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// revDNSIP control.
+        /// txtZone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNSIP;
+        protected global::System.Web.UI.WebControls.TextBox txtZone;
         
         /// <summary>
-        /// txtDNSIP control.
+        /// txtRec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDNSIP;
+        protected global::System.Web.UI.WebControls.TextBox txtRec;
+        
+        /// <summary>
+        /// revIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revIP;
+        
+        /// <summary>
+        /// txtIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIP;
         
         /// <summary>
         /// lblError control.

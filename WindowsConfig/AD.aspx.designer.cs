@@ -10,43 +10,34 @@
 namespace WindowsConfig {
     
     
-    public partial class DhcpOptional {
+    public partial class AD {
         
         /// <summary>
-        /// txtRouter control.
+        /// txtDomain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRouter;
+        protected global::System.Web.UI.WebControls.TextBox txtDomain;
         
         /// <summary>
-        /// txtName control.
+        /// txtPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtPass;
         
         /// <summary>
-        /// revDNSIP control.
+        /// txtConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNSIP;
-        
-        /// <summary>
-        /// txtDNSIP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDNSIP;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirm;
         
         /// <summary>
         /// lblError control.

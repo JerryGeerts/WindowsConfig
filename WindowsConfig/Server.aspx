@@ -1,27 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Server.aspx.cs" Inherits="WindowsConfig.Server" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .middle-wizzard input{
-            width:30px;
-            height:30px;
-            position:relative;
-            left:445px;
-            top:140px;
+        .middle-wizzard input {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            left: 445px;
+            top: 140px;
         }
 
-        .middle-wizzard label{
-            font-size:20px;
-            font-family:"Open Sans";
-            position:relative;
-            left:450px;
-            top:133px;
-            color:black;
-            font-weight:300;
-            margin-top:30px;
-            padding-left:30px;
+        .middle-wizzard label {
+            font-size: 20px;
+            font-family: "Open Sans";
+            position: relative;
+            left: 450px;
+            top: 133px;
+            color: black;
+            font-weight: 300;
+            margin-top: 30px;
+            padding-left: 30px;
         }
-        .Error{
-            top:230px;
+
+        .Error {
+            top: 230px;
         }
     </style>
 </asp:Content>
@@ -30,7 +32,7 @@
     <div class="top-wizzard">
         <p id="prog"><strong>PROGRESS</strong></p>
         <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-color:#34495e;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background-color: #34495e;">
             </div>
         </div>
         <div class="shadow">
@@ -47,7 +49,7 @@
         </div>
 
         <div class="bottom-wizzard">
-            <asp:Button ID="btnBackward" runat="server" Text="&#10094; Backward" OnClick="btnBackward_Click"/>
+            <asp:Button ID="btnBackward" runat="server" Text="&#10094; Backward" OnClick="btnBackward_Click" />
             <asp:Button ID="btnForward" runat="server" Text="Forward &#10095;" OnClick="btnForward_Click" />
         </div>
     </div>

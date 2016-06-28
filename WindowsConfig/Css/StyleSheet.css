@@ -11,7 +11,7 @@ body {
 
 .mid{
     width:60%;
-    margin:auto;    
+    margin:auto;
 }
 
 .UpperBackColor{
@@ -180,7 +180,6 @@ hr{
     left:452px;
 }
 
-
 .middle-wizzard h1 {
     font-family: "Open Sans";
     font-size: 25px;
@@ -218,4 +217,13 @@ hr{
     font-weight:300;
     font-size:16px;
     left:30%;
+}
+
+#ContentPlaceHolder1_txtBox{
+    width:70%;
+    display:block;
+    margin:auto;
+    position:relative;
+    top:20px;
+    height:410px;
 }

@@ -1,20 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Name.aspx.cs" Inherits="WindowsConfig.Name" %>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <style>
-        .txtName{
-            position:relative;
-            top:195px;
-            display:block;
-            margin:auto;
-            width:40%;
-            height:30px;
-            text-align:center;
+        .txtName {
+            position: relative;
+            top: 195px;
+            display: block;
+            margin: auto;
+            width: 40%;
+            height: 30px;
+            text-align: center;
             font-family: "Open Sans";
-            font-weight:400;
-            font-size:16px;
+            font-weight: 400;
+            font-size: 16px;
         }
-        .Error{
-            top:330px;
+
+        .Error {
+            top: 330px;
         }
     </style>
 </asp:Content>
@@ -24,7 +26,7 @@
         <p id="prog"><strong>PROGRESS</strong></p>
 
         <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%;background-color:#34495e;"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #34495e;"></div>
         </div>
 
         <div class="shadow"></div>
@@ -33,7 +35,7 @@
     <div class="wizzard-form" aria-grabbed="true" aria-invalid="spelling">
         <div class="middle-wizzard">
             <h1>What name would you like your server to have?</h1>
-            <asp:TextBox ID="txtName" runat="server" CssClass="txtName"></asp:TextBox>        
+            <asp:TextBox ID="txtName" runat="server" CssClass="txtName"></asp:TextBox>
             <asp:Label ID="lblError" runat="server" Text="" CssClass="Error"></asp:Label>
         </div>
 
