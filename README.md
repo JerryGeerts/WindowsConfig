@@ -1,3 +1,3 @@
 # WindowsConfig
-A ASPX website that will output a powershell script file that is generated on the settings you want you microsoft server to have
+A ASPX website that will output a powershell script that will apply the settings you want the microsoft server to have
 
